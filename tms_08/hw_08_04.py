@@ -20,7 +20,7 @@ class Account:
 
     @amount.setter
     def amount(self, new_amount):
-        Account.check_value(new_amount)
+        self.check_value(new_amount)
         self._amount = new_amount
 
     @staticmethod
@@ -29,8 +29,8 @@ class Account:
             raise Exception ('Value must be possitive')
 
     def info(self):
-        return print(self.person_id, ',', self.currency, ',', self.amount)
+        return self.person_id, self.currency, self.amount
 
 
 Petr = Account(str(uuid.uuid4()), Currency.usd.value, 333)
-Petr.info()
+print(Petr.info())
